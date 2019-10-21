@@ -1,0 +1,128 @@
+<!-- DOM IS NOTHING BUT DOCUMENT OBJECT MODEL : WHEN HTML CODE IS WORKING IN JAVASCRIPT CODE, TAG ARE IN FORM OF OBJECT IS CALLED DOM -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- hello world -->    
+    <h1 id="name">saksham</h1>
+    <button onclick="ChangeText()">Click</button>
+    <hr>
+    <br>    
+    <input id="user" type="text"></input>
+    <br>
+    <input id="password" type="password"></input>
+    <button onclick="form_data()">Submit</button>
+    <hr>
+    <select id="names">
+        <option value="saksham">saksham</option>
+        <option value="kashyap">kashyap</option>
+        <option value="prince">prince</option>
+        <option value="kumar">kumar</option>        
+    </select>
+    <button onclick="select_val()">click one me</button>
+    <hr>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    
+    <button onclick="change_style()">click one me</button>
+    <p class="change">world</p>
+    <p>world</p>
+    <p class="change">world</p>
+    <p>world</p>
+    <p class="change">world</p>    
+    <p>world</p>
+    <button onclick="change_style_selected()">click one me</button>
+
+    <hr>
+    <img id="pic" onmouseover="change_pic()" onmouseout="change_pic_back()" src="1.jpg" width="200">
+    <script>
+        //We pic on mouse over and set back again on mouse out
+        function change_pic()
+        {
+            document.getElementById("pic").src = "2.jpg";
+        }
+        function change_pic_back()
+        {
+            document.getElementById("pic").src = "1.jpg";
+        }
+
+        //We want to do some styling on tag without their different id's
+        function change_style()
+        {
+            var para = document.getElementsByTagName("p");       //here para is a array  
+            para[1].style.color = "red";
+            para[0].style.fontStyle = "italic"; 
+
+            for(var i=0;i<para.length;i++)
+            {
+                para[i].style.color = "red";
+            }
+            
+            // alert(para);
+        }
+        
+        //Now use of getelement by class
+        // class name of any tag can be repeated
+        // so we are only changing selected tag
+        function change_style_selected()
+        {
+            var para = document.getElementsByClassName("change");       //here para is a array  
+            para[1].style.color = "red";
+            para[0].style.fontStyle = "italic"; 
+
+            for(var i=0;i<para.length;i++)
+            {
+                para[i].style.color = "red";
+            }
+            
+            // alert(para);
+        }
+
+
+
+        //Showing selected value 
+        function select_val()
+        {
+            var select = document.getElementById("names");
+            alert(select.options[select.selectedIndex].value);      //IMPORTANT 
+        }
+
+        //showing input data in form on alert
+        function form_data()
+        {
+            var user = document.getElementById("user").value;
+            var pass = document.getElementById("password").value;
+            alert(user,pass);
+        }
+        //change text on click button
+        function ChangeText()
+        {
+            document.getElementById("name").innerHTML = "My Name Is magic";
+        }
+        //MAKING CONSTRUCTOR OR I THINK CLASS
+        function person(fname,lname,age)
+        {
+            this.fname = fname;
+            this.lname = lname;
+            this.age = age;
+            this.walk = function()      //METHODS
+            {
+                document.write("Yes i can walk\n");
+            }
+        }    
+        var p1 = new person("saksham","kashyap",20);        //HERE P1 AND P2 ARE OBJECTS
+        var p2 = new person("ram","kumar",22);
+        document.write(p1.fname,p2.fname);
+
+        
+    </script>
+</body>
+</html>

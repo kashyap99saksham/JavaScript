@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit="return submit_data()" action="1.html">
+        <input type="text" name="name" id="uname" ><br><h3 id="invalid_uname"></h3>
+        <input type="password" id="password" ><br><h3 id="invalid_pass"></h3>
+        <button type="submit">submit</button>
+    </form>
+    <script>
+        function submit_data()
+        {
+            var name = document.getElementById("uname").value;
+            var pass = document.getElementById("password").value;
+            if(pass.trim().length  <5)
+            {
+                    alert("Password is too weak");
+                    password.style.border = "solid 3px red";
+                    document.getElementById("invalid_pass").innerHTML = "Invalid Password";
+                    return false;
+            }
+            if(name.trim()=="")
+            {
+                alert("PleaseFillUsernameName");
+                uname.style.border = "solid 3px red";
+                document.getElementById("invalid_uname").innerHTML = "Invalid Username";
+                return false;
+            }
+            if(pass.trim()=="")
+            {
+                alert("pleaseFillPassword");
+                password.style.border = "solid 3px red";
+                document.getElementById("invalid_pass").innerHTML = "Invalid Password";
+                return false;
+            }
+            else
+            {
+                true;
+            }
+        }
+    </script>
+</body>
+</html>

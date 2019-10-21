@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="text">
+    <label id="msg" style="color:red; visibility:hidden" >invalid Text  (Does not contain E001)</label>
+    <br><button onclick="validate()">Click me</button>
+</body>
+<script>
+    function validate()
+    {
+        var text = document.getElementById("text").value;
+        // var validate_text = /E001/;     //WE ARE CHECKING THE INPUT STRING CONTAIN THIS EXPRESSION OR NOT
+        // var validate_text = /E001/i;    //'i' it is for case-insesitive 
+        // var validate_text = /[s,d,p]imple/; //either s , d, p before imple
+        // var validate_text = /[a-d]imple/;    //From a to d any word can come before imple
+        // var validate_text = /[a-d]imple/i;  //'i' is for case-insensitivity
+        // var validate_text = /[a-d A-Z]imple/;  //Same as with'i' is for case-insensitivity
+        // var validate_text = /[a-d]0[d-f]s/;     
+        // var validate_text = /^[a-d]imple/;      //'^' It is for not to start with a-d
+        // if(!validate_text.test(text))
+        // {
+        //     alert("inValid");
+        //     document.getElementById("msg").style.visibility="visible";
+        // }
+        // else
+        //     alert("Valid");
+
+        //VAlidating the input phone no
+        // var validate_mobile = /^[7-9]\d{9}$/;        //'^' This tells only start with 7-9 || '$' This tells end with 7-9 only || Tells only 10 no.
+        // if(validate_mobile.test(text))
+        // {
+        //     alert("Valid");
+        //     // document.getElementById("msg").style.visibility="visible";
+        // }
+        // else
+        // {
+        //     alert("InValid");
+        // }
+        //Example: First word from 5 - 9 and then 8 word between a-z and end with 0
+        // var example = /^[5-9][a-z]{8}0$/;
+        // if(example.test(text))
+        // {
+        //     alert("Valid");
+        //     // document.getElementById("msg").style.visibility="visible";
+        // }
+        // else
+        // {
+        // alert("InValid");
+        // }
+
+        //Email validation
+        var email_valid = /^([a-zA-Z0-9\.-]+)@([a-zA-Z0-9]+).([a-z]{2,10})$/;
+        if(email_valid.test(text))
+        {
+            alert("Valid");
+            // document.getElementById("msg").style.visibility="visible";
+        }
+        else
+        {
+        alert("InValid");
+        }
+    }
+</script>
+</html>
